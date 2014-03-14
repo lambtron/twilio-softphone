@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Twilio Softphone</title>
+
+  <script type="text/javascript" src="https://static.twilio.com/libs/twiliojs/1.2-beta/twilio.min.js"></script>  
+  
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <!-- // <script src="https://na15.salesforce.com/support/api/29.0/interaction.js"></script>
+  // <script src="https://na15.salesforce.com/support/console/29.0/integration.js"></script> -->
+  <!-- // <script type="text/javascript" src="/scripts/softphone.js"></script> -->
+
+  <!-- AngularJS -->
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
+
+<!--   // <script src="/socket.io/socket.io.js"></script> -->
+  <script src="/js/app.js"></script>
+  <script src="/js/services.js"></script>
+  <script src="/js/controllers.js"></script>
+ 
+  <link rel="stylesheet" type="text/css" href="/css/dialer.css">
+</head>
+<body ng-app="twilioSoftphone">
+  <div id="softphone" class="softphone" ng-controller="softphoneController">
+
+    <div id="agent-status-controls" class="clearfix">
+      <button class="agent-status ready">Ready</button><button class="agent-status not-ready">Not Ready</button><div class="agent-status active">Call In-Progress</div>
+    </div><!-- /agent-status -->
+
+    <div id="agent-status">
+      <p></p>
+    </div><!-- /agent-status -->
+
+    <div class="divider"></div>
+
+    <div id="number-entry">
+      <input placeholder="+1 (555) 555-5555"></input>
+      <div class="incoming-call-status">Incoming Call</div>
+    </div><!-- /number-entry" -->
+
+    <div id="dialer">
+      <div id="dialer-container">
+        <div class="numpad-container">
+          <div class="number" value="1">1</div><div class="number" value="2">2</div><div class="number" value="3">3</div><div class="number" value="4">4</div><div class="number" value="5">5</div><div class="number" value="6">6</div><div class="number" value="7">7</div><div class="number" value="8">8</div><div class="number" value="9">9</div><div class="number ast" value="*">&lowast;</div><div class="number" value="0">0</div><div class="number" value="#">#</div>
+        </div><!-- /numpad-container -->
+      </div><!-- /dialer-container -->
+    </div><!-- /dialer -->
+
+  <div id="action-button-container">
+    <div id="action-buttons">
+      <button class="call">Call</button>
+      <button class="answer">Answer</button>
+      <button class="hangup">Hangup</button>
+      <button class="mute">Mute</button><button class="hold">Hold</button><button class="unhold">UnHold</button>
+    </div><!-- /action-buttons -->
+  </div><!---action-button-containe -->
+
+    <div id="call-data">
+      <h3>Caller info</h3>
+      <ul class="name"><strong>Name: </strong><span class="caller-name"></span></ul>
+      <ul class="phone_number"><strong>Number: </strong><span class="caller-number"></span></ul>
+      <ul class="queue"><strong>Queue: </strong><span class="caller-queue"></span></ul>
+      <ul class="message"><strong>Message: </strong><span class="caller-message"></span></ul>
+    </div><!-- /call-data -->
+
+
+     <div id="callerid-entry">
+      <input style="visibility:<%= anycallerid %>" placeholder="Change your callerid"></input>
+    </div><!-- /number-entry" -->
+
+    <div id="team-status">
+      <div class="agents-status"><div class="agents-num">-</div>Agents</div><div class="queues-status"><div class="queues-num">-</div>In-Queue</div>
+    </div><!-- /team-status -->
+
+    <div class="powered-by">
+      <img src="/poweredby.png" />
+    </div>
+
+  </div><!-- /softphone -->
+</body>
+</html>
